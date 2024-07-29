@@ -6,13 +6,14 @@ import './ContactUs.css';
 
 // eslint-disable-next-line react/prop-types
 const ModalFormulario = ({ show, onHide, formValues, setShow, setIsSubmitting, setFormValues }) => {
-  const navegar = useNavigate();
+  //const navegar = useNavigate();
   const goTo = () => {
     onHide();
-    navegar('/');
+    // navegar('/');
   };
 
   useEffect(() => {
+    console.log(show);
     if (show) {
       const sendEmail = () => {
         setIsSubmitting(true);
@@ -29,6 +30,7 @@ const ModalFormulario = ({ show, onHide, formValues, setShow, setIsSubmitting, s
               setIsSubmitting(false);
               setFormValues({ name: '', email: '', subject: '', message: '' });
               setShow(false);
+              console.log(show);
             },
             (error) => {
               console.log(error.text);
